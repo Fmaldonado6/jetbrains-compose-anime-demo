@@ -57,10 +57,6 @@ This is a demo app for getting information of your favorite animes, built using 
 4. Push to the branch: `git commit -am 'Add some feature'`
 5. Submit a pull request
 
-**Note** both the angular and the android projects have environment variables to connect to your local Aruppi Api server. For default
-the android app will connect to your local server only if you are running it on an emulator, if you want to test on a real device, change the variable
-in the gradle file, but please don´t commit this change.
-
 
 <!-- CONTACT -->
 ## Contact
