@@ -25,7 +25,7 @@
 <br />
 <p align="center">
 
-  <h3 align="center">JetPack Anime Demo</h3>
+  <h3 align="center">Jetbrains Compose Anime Demo</h3>
 
 </p>
 
@@ -37,14 +37,14 @@
 ## About The Project
 
 
-This is a demo app for getting information of your favorite animes, built using the Alpha version of Jetpack Compose for Desktop
+This is a demo app for getting information of your favorite animes, built using the Alpha version of Jetbrains Compose for Desktop
 
 ### Built With
 
 * Kotlin
 * MVVM architecture
 * [Jikan API](https://github.com/jikan-me/jikan)
-* [Jetpack Compose](https://github.com/JetBrains/compose-jb)
+* [Jetbrains Compose](https://github.com/JetBrains/compose-jb)
 
 
 
