@@ -25,7 +25,7 @@
 <br />
 <p align="center">
 
-  <h3 align="center">JetPack Anime Demo</h3>
+  <h3 align="center">Jetbrains Compose Anime Demo</h3>
 
 </p>
 
@@ -37,14 +37,14 @@
 ## About The Project
 
 
-This is a demo app for getting information of your favorite animes, built using the Alpha version of Jetpack Compose for Desktop
+This is a demo app for getting information of your favorite animes, built using the Alpha version of Jetbrains Compose for Desktop
 
 ### Built With
 
 * Kotlin
 * MVVM architecture
 * [Jikan API](https://github.com/jikan-me/jikan)
-* [Jetpack Compose](https://github.com/JetBrains/compose-jb)
+* [Jetbrains Compose](https://github.com/JetBrains/compose-jb)
 
 
 
@@ -56,10 +56,6 @@ This is a demo app for getting information of your favorite animes, built using 
 3. Commit changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git commit -am 'Add some feature'`
 5. Submit a pull request
-
-**Note** both the angular and the android projects have environment variables to connect to your local Aruppi Api server. For default
-the android app will connect to your local server only if you are running it on an emulator, if you want to test on a real device, change the variable
-in the gradle file, but please don´t commit this change.
 
 
 <!-- CONTACT -->
