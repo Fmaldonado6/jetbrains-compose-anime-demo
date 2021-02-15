@@ -14,46 +14,66 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.jetbrains.skija.Image
 import java.io.ByteArrayOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import javax.imageio.ImageIO
 
+open class NetworkImageState {}
+
+class NetworkImageLoadingState : NetworkImageState() {}
+
+class NetworkImageLoadedState(val bitmap: ImageBitmap) : NetworkImageState() {}
+
+
 @Composable
 fun networkImage(url: String, imageModifier: Modifier, contentScale: ContentScale, spinnerSize: Dp = 80.dp) {
-    var bitmap by remember { mutableStateOf<ImageBitmap?>(null) }
+    var state = loadNetworkImage(url)
 
-    GlobalScope.async {
-        bitmap = loadNetworkImage(url)
-    }
-
-    if (bitmap != null) Image(
-        bitmap = bitmap!!,
-        modifier = imageModifier,
-        contentScale = contentScale
-    ) else Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.size(spinnerSize)
-    ) {
-        CircularProgressIndicator(
-            strokeWidth = 2.dp,
-            modifier = Modifier.size(16.dp)
+    when (state) {
+        is NetworkImageLoadingState -> Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.size(spinnerSize)
+        ) {
+            CircularProgressIndicator(
+                strokeWidth = 2.dp,
+                modifier = Modifier.size(16.dp)
+            )
+        }
+        is NetworkImageLoadedState -> Image(
+            bitmap = (state as NetworkImageLoadedState).bitmap,
+            modifier = imageModifier,
+            contentScale = contentScale
         )
     }
 }
 
-fun loadNetworkImage(link: String): ImageBitmap {
-    val url = URL(link)
-    val connection = url.openConnection() as HttpURLConnection
-    connection.connect()
+@Composable
+fun loadNetworkImage(link: String): NetworkImageState {
+    var state by remember(link) {
+        mutableStateOf<NetworkImageState>(NetworkImageLoadingState())
+    }
 
-    val inputStream = connection.inputStream
-    val bufferedImage = ImageIO.read(inputStream)
+    if(state is NetworkImageLoadedState)
+        return state
 
-    val stream = ByteArrayOutputStream()
-    ImageIO.write(bufferedImage, "png", stream)
-    val byteArray = stream.toByteArray()
+    GlobalScope.launch {
+        val url = URL(link)
+        val connection = url.openConnection() as HttpURLConnection
+        connection.connect()
 
-    return Image.makeFromEncoded(byteArray).asImageBitmap()
+        val inputStream = connection.inputStream
+        val bufferedImage = ImageIO.read(inputStream)
+
+        val stream = ByteArrayOutputStream()
+        ImageIO.write(bufferedImage, "png", stream)
+        val byteArray = stream.toByteArray()
+
+        val bitmap = Image.makeFromEncoded(byteArray).asImageBitmap()
+        state = NetworkImageLoadedState(bitmap)
+
+    }
+    return state
 }
