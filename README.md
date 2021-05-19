@@ -25,11 +25,22 @@
 <br />
 <p align="center">
 
-  <h3 align="center">Jetbrains Compose Anime Demo</h3>
+  <h1 align="center">Jetbrains Compose Anime Demo</h1>
 
 </p>
 
 
+<br>
+
+<p align="center">
+    <img  src="assets/1.png" alt="Logo" width="33%" >
+  <img  src="assets/2.png" alt="Logo" width="33%" >
+</p>
+<p align="center">
+   <img  src="assets/3.png" alt="Logo" width="33%" >
+    <img  src="assets/4.png" alt="Logo" width="33%" >
+</p>
+<br>
 
 
 
@@ -54,7 +65,7 @@ This is a demo app for getting information of your favorite animes, built using 
 1. Fork it!
 2. Create a branch for the feature you want to make: `git checkout -b my-new-feature`
 3. Commit changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request
 
 

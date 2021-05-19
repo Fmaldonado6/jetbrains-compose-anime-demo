@@ -25,6 +25,7 @@ object AppSettings {
     var darkMode by mutableStateOf<Boolean>(false)
 }
 
+
 fun main() {
 
     val DarkColors = darkColors(primary = Color(245, 127, 127), secondary = Color.White)
