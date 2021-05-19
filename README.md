@@ -33,12 +33,12 @@
 <br>
 
 <p align="center">
-    <img  src="assets/1.png" alt="Logo" width="33%" >
-  <img  src="assets/2.png" alt="Logo" width="33%" >
+    <img  src="assets/1.PNG" alt="Logo" width="33%" >
+  <img  src="assets/2.PNG" alt="Logo" width="33%" >
 </p>
 <p align="center">
-   <img  src="assets/3.png" alt="Logo" width="33%" >
-    <img  src="assets/4.png" alt="Logo" width="33%" >
+   <img  src="assets/3.PNG" alt="Logo" width="33%" >
+    <img  src="assets/4.PNG" alt="Logo" width="33%" >
 </p>
 <br>
 
